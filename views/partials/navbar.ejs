@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://kit.fontawesome.com/ceec21f1dc.js" crossorigin="anonymous"></script>
+    <Script src="/script.js" defer></Script>
+</head>
+
+<body>
+    <!-- Navbar -->
+
+    <div class="navbar">
+        <a href="/" class="logo">Project site</a>
+        <ul class="nav-links">
+            <li><a href="/">About</a></li>
+            <li><a href="/categories">Categories</a></li>
+
+            <% if(user) { %>
+                <li><a href="/logout">Logout</a></li>
+                <li>Welcome, <%= user.name %></li>
+            <% } else { %>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            <% } %>
+        </ul>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    <div class="dropdown-menu">
+        <li><a href="/">About</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <% if(user) { %>
+            <li><a href="/logout">Logout</a></li>
+            <li>Welcome, <%= user.name %></li>
+        <% } else { %>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        <% } %>
+    </div>
+
+    <!-- Navbar -->

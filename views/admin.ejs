@@ -1,0 +1,14 @@
+    <%- include('partials/navbar'); -%>
+
+    <div class="info">
+        <h1>Admin dashboard</h1>
+        <% if(user.role != 'admin') { %>
+            <div class="access">Access denied</div>
+        <% } else {%>
+            <p class="access">Hello, <%- user.name %></p>
+            <a href="/admin/product"><button class="admin_buttons">Submit a product</button></a>>
+        <% }%>
+    </div>
+</body>
+
+</html>

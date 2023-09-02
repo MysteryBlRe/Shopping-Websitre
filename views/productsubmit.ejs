@@ -1,0 +1,24 @@
+<%- include('partials/navbar'); -%>
+
+<div class="info">
+    <h1>Submit a product</h1>
+
+    <form action="/admin/product" method="post" class="login-form" enctype="multipart/form-data">
+        <label for="name">Name of product:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+        <label for="image">Product Image</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <div class="image error"></div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+
+    </script>
+
+</div>
+</body>
+
+</html>
