@@ -92,7 +92,7 @@ body {
     min-width: 300px;
 }
 
-.login-form label, .login-form input, .login-form button {
+.login-form label, .login-form input, .login-form button, .login-form select {
     font-size: 20px;
 }
 

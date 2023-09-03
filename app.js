@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
 require('dotenv').config();
 
 
@@ -103,7 +102,7 @@ const Product = require('./models/Product');
 app.get('/category/:id', async (req, res) => {
     let categoryId = req.params.id;
 
-    const products = await Product.find({});
+    const products = await Product.find({category : categoryId});
 
     res.render('category', {categoryId, products});
 })
@@ -112,7 +111,12 @@ app.get('/login', (req, res) => res.render('login'));
 app.get('/register', (req, res) => res.render('register'));
 app.get('/admin', requireAdmin, (req, res) => res.render('admin'));
 app.get('/admin/*', requireAdmin);
-app.get('/admin/product', (req, res) => res.render('productsubmit'))
+app.get('/admin/product', async (req, res) => {
+
+    const categories = await Category.find();
+
+    res.render('productsubmit', {categories})
+})
 
 //Logout
 app.get('/logout', (req, res) => {
@@ -120,36 +124,22 @@ app.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-
-//Multer
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/img');
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now() + require('path').extname(file.originalname));
-    }
-  })
-  
-const upload = multer({ storage: storage })
-
 //Submit Product
 
 
-app.post('/admin/product', upload.single("image") ,async (req, res) => {
+app.post('/admin/product', async (req, res) => {
 
     const name = req.body.name;
     const category = req.body.category;
-    const image = req.file.filename;
+    const image = req.body.image;
 
     try {
         await Product.create({name, category, image});
-        res.redirect('/category/' + category);
+        res.status(200).json({image});
     } catch (err) {
         console.log(err);
         res.status(400);
     }
-    console.log(name, category, req.file.filename);
 })
 
 
@@ -222,4 +212,8 @@ app.post('/login', async (req, res) => {
     } catch (err){
         console.log(err);
     }
+})
+
+app.get('*', (req, res) => {
+    res.redirect('/')
 })
