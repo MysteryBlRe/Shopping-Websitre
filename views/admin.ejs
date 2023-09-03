@@ -2,12 +2,11 @@
 
     <div class="info">
         <h1>Admin dashboard</h1>
-        <% if(user.role != 'admin') { %>
-            <div class="access">Access denied</div>
-        <% } else {%>
-            <p class="access">Hello, <%- user.name %></p>
+        <p class="access">Hello, <%- user.name %></p>
+        <div class="admin_actions">
             <a href="/admin/product"><button class="admin_buttons">Submit a product</button></a>
-        <% }%>
+            <a href="/admin/category"><button class="admin_buttons">Submit a category</button></a>
+        </div>
     </div>
 </body>
 

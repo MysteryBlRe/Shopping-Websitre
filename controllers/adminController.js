@@ -11,6 +11,10 @@ const adminProductPage = async (req, res) => {
     res.render('productsubmit', {categories})
 }
 
+const adminCategoryPage = async (req, res) => {
+    res.render('categorySubmit')
+}
+
 const submitProduct = async (req, res) => {
     const name = req.body.name;
     const category = req.body.category;
@@ -25,8 +29,23 @@ const submitProduct = async (req, res) => {
     }
 }
 
+const submitCategory = async (req, res) => {
+    const name = req.body.name;
+    const image = req.body.image;
+
+    try {
+        await Category.create({name, image});
+        res.status(200).json({image});
+    } catch (err) {
+        console.log(err);
+        res.status(400);
+    }
+}
+
 module.exports = {
     adminDashboard,
     adminProductPage,
-    submitProduct
+    adminCategoryPage,
+    submitProduct,
+    submitCategory
 }

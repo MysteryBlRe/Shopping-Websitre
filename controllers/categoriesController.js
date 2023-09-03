@@ -9,6 +9,11 @@ const categoriesPage = async (req, res) => {
 const categoryPage = async (req, res) => {
     let categoryId = req.params.id;
 
+    const categories = await Category.find({name: categoryId});
+    if(categories == ''){
+        return res.redirect('/categories');
+    }
+
     const products = await Product.find({category : categoryId});
 
     res.render('category', {categoryId, products});

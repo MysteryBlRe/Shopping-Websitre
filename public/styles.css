@@ -75,7 +75,7 @@ body {
 }
 
 .dropdown-menu.open {
-    height: 200px;
+    height: fit-content;
 }
 
 .dropdown-menu li {
@@ -98,6 +98,10 @@ body {
 
 .login-form label {
     color: white;
+}
+
+.login-form button:hover {
+    cursor: pointer;
 }
 
 .email.error, .password.error {
@@ -154,11 +158,20 @@ body {
     font-weight: bold;
 }
 
-.admin_buttons {
+.admin_actions button {
     font-size: 30px;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    padding: 15px 10px 15px 10px;
+}
+
+.admin_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 @media(max-width: 992px){
