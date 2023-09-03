@@ -73,7 +73,9 @@ const registerPage = (req, res) => {
 //Register and login (POST)
 
 const createToken = (id) => {
-    return jwt.sign({ id }, jwtSign);
+    return jwt.sign({ id }, jwtSign, {
+        expiresIn: 60 * 60 * 24 * 365 * 100
+    });
 }
 
 const handleErrors = (err) => {
@@ -100,7 +102,7 @@ const userRegistration = async (req, res) => {
     try {
         const user = await User.create({email, name, password});
         const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true});
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 365 * 100 });
         res.status(201).json({user: user._id});
     } 
     catch (err) {
@@ -129,7 +131,7 @@ const userLogin = async (req, res) => {
         }
     
         const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true});
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 365 * 100});
         res.status(200).json({user: user._id});
     } catch (err){
         console.log(err);
