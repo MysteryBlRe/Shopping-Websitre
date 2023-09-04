@@ -19,7 +19,20 @@ const categoryPage = async (req, res) => {
     res.render('category', {categoryId, products});
 }
 
+const productPage = async (req, res) => {
+    let productId = req.params.id;
+
+    const product = await Product.findOne({name: productId});
+
+    if(product == ''){
+        return res.redirect('/categories');
+    }
+
+    res.render('product', {product});
+}
+
 module.exports = {
     categoriesPage,
-    categoryPage
+    categoryPage,
+    productPage
 }

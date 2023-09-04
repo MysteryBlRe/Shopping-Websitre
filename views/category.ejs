@@ -5,7 +5,7 @@
         <div class ="products">
             <% if(products != '') {%>
                 <%products.forEach((product, index) => { %>
-                    <a href="" class="category">
+                    <a href="/product/<%- product.name %>" class="category">
                         <div class="category_img">
                             <img src="<%- product.image %>" alt="<%- product.name %>" loading="lazy">
                         </div>
