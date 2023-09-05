@@ -3,14 +3,14 @@
     <div class="info">
         <h1><%-categoryId%></h1>
         <div class ="products">
-            <% if(products != '') {%>
-                <%products.forEach((product, index) => { %>
-                    <a href="/product/<%- product.name %>" class="category">
+            <% if(subCategories != '') {%>
+                <%subCategories.forEach((subCategory, index) => { %>
+                    <a href="/subcategory/<%- subCategory.name %>" class="category">
                         <div class="category_img">
-                            <img src="<%- product.image %>" alt="<%- product.name %>" loading="lazy">
+                            <img src="<%- subCategory.image %>" alt="<%- subCategory.name %>" loading="lazy">
                         </div>
                         <div class="category_title">
-                            <%- product.name %>
+                            <%- subCategory.name %>
                         </div>
                     </a>
                 <% }); %>

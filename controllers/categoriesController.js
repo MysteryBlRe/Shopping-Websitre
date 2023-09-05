@@ -1,4 +1,5 @@
 const Category = require('../models/Category');
+const SubCategory = require('../models/SubCategory');
 const Product = require('../models/Product');
 
 const categoriesPage = async (req, res) => {
@@ -6,17 +7,19 @@ const categoriesPage = async (req, res) => {
     res.render('categories', {categories});
 }
 
+const subCategoryPage = async (req, res) => {
+    let subcategoryId = req.params.id;
+
+    const products = await Product.find({category: subcategoryId});
+    res.render('subCategory', {subcategoryId, products});
+}
+
 const categoryPage = async (req, res) => {
     let categoryId = req.params.id;
 
-    const categories = await Category.find({name: categoryId});
-    if(categories == ''){
-        return res.redirect('/categories');
-    }
+    const subCategories = await SubCategory.find({category: categoryId});
 
-    const products = await Product.find({category : categoryId});
-
-    res.render('category', {categoryId, products});
+    res.render('category', {categoryId, subCategories});
 }
 
 const productPage = async (req, res) => {
@@ -34,5 +37,6 @@ const productPage = async (req, res) => {
 module.exports = {
     categoriesPage,
     categoryPage,
-    productPage
+    productPage,
+    subCategoryPage
 }

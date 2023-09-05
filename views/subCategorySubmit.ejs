@@ -1,15 +1,15 @@
 <%- include('partials/navbar'); -%>
 
 <div class="info">
-    <h1>Submit a product</h1>
+    <h1>Submit a sub category</h1>
 
     <form class="login-form">
-        <label for="name">Name of product:</label>
+        <label for="name">Name of sub category:</label>
         <input type="text" id="name" name="name" required>
         <label for="category">Category:</label>
         <select name="category" id="category" required>
             <option disabled="disabled" selected="selected" value="">Select a category</option>
-            <% subCategories.forEach(category => { %>
+            <% categories.forEach(category => { %>
                 <option value="<%- category.name %>"><%- category.name %></option>
             <% }); %>
           </select>
@@ -30,7 +30,7 @@
             const image = form.image.value;
 
             try{
-                const res = await fetch('/admin/product', {
+                const res = await fetch('/admin/subcategory', {
                     method: 'POST',
                     body: JSON.stringify({name, category ,image}),
                     headers: {'Content-Type' : 'application/json'}
@@ -39,7 +39,7 @@
                 const data = await res.json();
 
                 if(data.image){
-                    location.assign('/subcategory/' + category);
+                    location.assign('/category/' + category);
                 }
             }
             catch (err) {
