@@ -46,6 +46,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 30px;
+    color: white;
 }
 
 .info h1 {
@@ -202,9 +203,18 @@ body {
     color: white;
 }
 
-.product_description button {
-    height: fit-content;
-    width: fit-content;
+.description {
+    font-size: 20px;
+}
+
+.purhcase_button {
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
 }
 
 .profile {
@@ -289,8 +299,8 @@ body {
     }
 
     .product img {
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
     }
 }
 
