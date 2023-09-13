@@ -11,9 +11,9 @@ router.get('/admin/product', adminController.adminProductPage)
 router.get('/admin/category', adminController.adminCategoryPage)
 router.get('/admin/subcategory', adminController.adminSubCategoryPage)
 
-router.post('/admin/product', adminController.submitProduct);
-router.post('/admin/category', adminController.submitCategory);
-router.post('/admin/subcategory', adminController.submitSubCategory);
+router.post('/admin/product',authController.requireAdmin ,adminController.submitProduct);
+router.post('/admin/category',authController.requireAdmin, adminController.submitCategory);
+router.post('/admin/subcategory',authController.requireAdmin, adminController.submitSubCategory);
 
 
 module.exports = router;

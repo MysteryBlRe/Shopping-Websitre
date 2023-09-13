@@ -1,6 +1,14 @@
 const Category = require('../models/Category');
 const SubCategory = require('../models/SubCategory');
 const Product = require('../models/Product');
+const Order = require('../models/Order');
+const User = require('../models/User')
+
+const jwt = require('jsonwebtoken');
+
+require('dotenv').config();
+const jwtSign = process.env.JWTSIGN;
+
 
 const categoriesPage = async (req, res) => {
     const categories = await Category.find({});
@@ -34,9 +42,25 @@ const productPage = async (req, res) => {
     res.render('product', {product});
 }
 
+const orderProduct = async (req, res) => {
+    const name = req.body.name;
+    const image = req.body.image;
+    const userid = req.body.userid;
+
+    try {
+        await Order.create({name, image, userid});
+        res.status(200).json({image});
+    } catch (err) {
+        console.log(err);
+        res.status(400);
+    }
+
+}
+
 module.exports = {
     categoriesPage,
     categoryPage,
     productPage,
-    subCategoryPage
+    subCategoryPage,
+    orderProduct
 }

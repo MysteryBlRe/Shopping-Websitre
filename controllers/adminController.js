@@ -26,9 +26,10 @@ const submitProduct = async (req, res) => {
     const name = req.body.name;
     const category = req.body.category;
     const image = req.body.image;
+    const description = req.body.description;
 
     try {
-        await Product.create({name, category, image});
+        await Product.create({name, category, image, description});
         res.status(200).json({image});
     } catch (err) {
         console.log(err);

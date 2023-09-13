@@ -1,0 +1,32 @@
+    <%- include('partials/navbar'); -%>
+
+    <div class="info">
+        <h1>Your profile</h1>
+        <div class="profile">
+            <div>Name: <%- user.name %></div>
+            <div>Email: <%- user.email %></div>
+
+            <div>
+                <% if(user.role == 'admin'){ %>
+                    <a href="/admin"><button>Go to admin dashboard</button></a>
+                <% } %>
+            </div>
+        </div>
+        <div class="orders">
+            <div style="text-decoration: underline;">Orders</div>
+            <% orders.forEach(order => { %>
+                <div class="order">
+                    <img src="<%- order.image %>">
+                    <div>
+                        <div style="color: white;"><a href="/product/<%- order.name %>"><%- order.name %></a></div>
+                        <div style="color: rgb(40, 161, 40);">The order is on it's way.</div>
+                    </div>
+                </div>
+            <% }); %>
+
+            <% %>
+        </div>
+    </div>
+</body>
+
+</html>

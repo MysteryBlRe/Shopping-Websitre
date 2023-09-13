@@ -15,7 +15,8 @@
           </select>
         <label for="image">Product Image URL:</label>
         <input type="text" id="image" name="image" required>
-        <div class="image error"></div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
         <button type="submit">Submit</button>
     </form>
 
@@ -28,11 +29,12 @@
             const name = form.name.value;
             const category = form.category.value;
             const image = form.image.value;
+            const description = form.description.value;
 
             try{
                 const res = await fetch('/admin/product', {
                     method: 'POST',
-                    body: JSON.stringify({name, category ,image}),
+                    body: JSON.stringify({name, category ,image, description}),
                     headers: {'Content-Type' : 'application/json'}
                 });
 

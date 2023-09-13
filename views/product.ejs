@@ -3,6 +3,56 @@
     <div class="info">
         <h1><%- product.name %></h1>
     </div>
+    <div class="product">
+        <div class="product_image">
+            <img src="<%- product.image %>">
+        </div>
+        <div class="product_description">
+            <div class="title">Description</div>
+            <div class="description">
+                <%- product.description %>
+            </div>
+            <form class="purchase">
+                <input type="hidden" id="name" name="name" value="<%- product.name %>">
+                <input type="hidden" id="image" name="image" value="<%- product.image %>">
+                <input type="hidden" id="userid" name="userid" value="<%- user._id %>">
+                <input class="purhcase_button" type="submit" value="Purchase" />
+                <div id="purchase_success"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    
+    const form = document.querySelector('form');
+    const success = document.getElementById("purchase_success");
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = form.name.value;
+        const image = form.image.value;
+        const userid = form.userid.value;
+
+        try{
+            const res = await fetch('/product/order', {
+                method: 'POST',
+                body: JSON.stringify({name, image, userid}),
+                headers: {'Content-Type' : 'application/json'}
+            });
+
+            const data = await res.json();
+
+            if(data){
+                success.textContent = "Successfully ordered";
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+    });
+
+    </script>
 </body>
 
 </html>
