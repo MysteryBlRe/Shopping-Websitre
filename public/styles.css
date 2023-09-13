@@ -281,8 +281,8 @@ body {
 
 .gallery {
     display: flex;
-    width: 1000px;
-    height: 300px;
+    width: 1400px;
+    height: 400px;
 }
 
 .gallery img{
@@ -305,7 +305,8 @@ body {
     }
 
     .gallery {
-        display: none;
+        width: 800px;
+        height: 300px;
     }
 
     .toggle-btn {
@@ -332,5 +333,9 @@ body {
     .dropdown-menu{
         left:2rem;
         width: unset;
+    }
+
+    .gallery {
+        display: none;
     }
 }
