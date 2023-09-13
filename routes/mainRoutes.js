@@ -7,12 +7,18 @@ require('dotenv').config();
 const jwtSign = process.env.JWTSIGN;
 
 const User = require('../models/User')
+const Category = require('../models/Category')
 const Order = require('../models/Order')
 
 const authController = require('../controllers/authController');
 
 router.get('*', authController.checkUser);
-router.get('/', (req, res) => res.render('index'));
+router.get('/', async (req, res) => {
+
+    const categories = await Category.find().limit(5);
+
+    res.render('index', {categories})
+});
 router.get('/profile', authController.requireAuth , (req, res) => {
 
     const token = req.cookies.jwt;

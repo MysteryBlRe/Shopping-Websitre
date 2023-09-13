@@ -7,14 +7,14 @@ html, body {
 }
 
 body {
-    background-color: #5C5470;
+    background-color: #8d99ae;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #352F44;
+    background-color: #2b2d42;
     padding: 10px 30px 10px 30px;
     box-shadow: 0 8px 4px 0 rgba(0,0,0,.2);
 }
@@ -211,8 +211,8 @@ body {
     font-size: 20px;
     border-radius: 20px;
     padding: 10px;
-    background-color: blue;
-    color: white;
+    background-color: #edf2f4;
+    color: black;
     cursor: pointer;
     box-shadow: 0 0 11px rgba(255, 255, 255, 0.3);
 }
@@ -279,8 +279,32 @@ body {
     box-shadow: 0 0 11px rgba(0, 0, 0, 0.3);
 }
 
+.gallery {
+    display: flex;
+    width: 1400px;
+    height: 400px;
+}
+
+.gallery img{
+    min-width: 0;
+    flex: 1 1 10px;
+    object-fit: cover;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.gallery img:hover{
+    flex: 1 1 280px;
+    opacity: 1;
+    cursor: pointer;
+}
+
 @media(max-width: 992px){
     .nav-links {
+        display: none;
+    }
+
+    .gallery {
         display: none;
     }
 
