@@ -13,10 +13,14 @@
                 <%- product.description %>
             </div>
             <form class="purchase">
-                <input type="hidden" id="name" name="name" value="<%- product.name %>">
-                <input type="hidden" id="image" name="image" value="<%- product.image %>">
-                <input type="hidden" id="userid" name="userid" value="<%- user._id %>">
-                <input class="purhcase_button" type="submit" value="Place order" />
+                <% if(user){ %>
+                    <input type="hidden" id="name" name="name" value="<%- product.name %>">
+                    <input type="hidden" id="image" name="image" value="<%- product.image %>">
+                    <input type="hidden" id="userid" name="userid" value="<%- user._id %>">
+                    <input class="purhcase_button" type="submit" value="Place order" />
+                <% } else { %>
+                    <button class="purhcase_button" onclick="javascript:window.location='/login';">Place order</button>
+                <% } %>
                 <div id="purchase_success"></div>
             </form>
         </div>

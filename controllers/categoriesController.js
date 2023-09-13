@@ -52,7 +52,7 @@ const orderProduct = async (req, res) => {
         res.status(200).json({image});
     } catch (err) {
         console.log(err);
-        res.status(400);
+        res.redirect('/login');
     }
 
 }

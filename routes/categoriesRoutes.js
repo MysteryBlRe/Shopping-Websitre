@@ -10,7 +10,7 @@ router.get('/subcategory/:id' , categoriesController.subCategoryPage);
 
 router.get('/category/:id', categoriesController.categoryPage);
 
-router.get('/product/:id', authController.requireAuth, categoriesController.productPage);
+router.get('/product/:id', categoriesController.productPage);
 
 router.post('/product/order', authController.requireAuth, categoriesController.orderProduct);
 
