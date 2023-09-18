@@ -11,13 +11,13 @@
 
         <div class="wrapper">
             <i id="left" class="fa-solid fa-angle-left" style="color: black;"></i>
-                <ul class="carousel">
-                    <% categories.forEach(category => { %>
-                        <li class="card">
-                            <img class="img" src="<%- category.image %>" draggable="false" onclick="javascript:window.location='/category/<%- category.name %>';">
-                        </li>
-                    <% }); %>
-                </ul>
+            <ul class="carousel">
+                <% categories.forEach(category => { %>
+                    <li class="card">
+                        <div class="img" ><img src="<%- category.image %>" draggable="false" onclick="javascript:window.location='/category/<%- category.name %>';"></div>
+                    </li>
+                <% }); %>
+            </ul>
             <i id="right" class="fa-solid fa-angle-right" style="color: black;"></i>
         </div>
     </div>

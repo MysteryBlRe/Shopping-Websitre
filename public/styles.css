@@ -1,13 +1,16 @@
-html, body {
+* {
+    box-sizing: border-box;
     margin: 0;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
+    padding:0;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+
     background-color: #8d99ae;
+    min-height: 100vh;
+    padding: 0 35px;
 }
 
 .navbar {
@@ -15,21 +18,27 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #2b2d42;
-    padding: 10px 30px 10px 30px;
-    box-shadow: 0 8px 4px 0 rgba(0,0,0,.2);
+    padding: 10px 30px;
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, .2);
+    margin: 0 -35px;
 }
 
-.navbar a, .dropdown-menu a, .navbar li, .dropdown-menu li {
+.navbar a,
+.dropdown-menu a,
+.navbar li,
+.dropdown-menu li {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-.nav-links a:hover, .dropdown-menu a:hover {
+.nav-links a:hover,
+.dropdown-menu a:hover {
     color: cornflowerblue;
 }
 
-.nav-links, .dropdown-menu li {
+.nav-links,
+.dropdown-menu li {
     display: flex;
     gap: 20px;
     list-style-type: none;
@@ -94,7 +103,10 @@ body {
     min-width: 300px;
 }
 
-.login-form label, .login-form input, .login-form button, .login-form select {
+.login-form label,
+.login-form input,
+.login-form button,
+.login-form select {
     font-size: 20px;
 }
 
@@ -106,7 +118,8 @@ body {
     cursor: pointer;
 }
 
-.email.error, .password.error {
+.email.error,
+.password.error {
     color: mediumorchid;
     font-size: 20px;
 }
@@ -127,12 +140,12 @@ body {
     text-decoration: none;
 }
 
-.category_img img{
+.category_img img {
     width: 300px;
     height: 200px;
     border-radius: 30px;
     margin-bottom: 10px;
-    box-shadow: 0 0 11px rgba(0,0,0,.5);
+    box-shadow: 0 0 11px rgba(0, 0, 0, .5);
 }
 
 .category_title {
@@ -145,7 +158,7 @@ body {
     transform: scale(1.1);
 }
 
-.products{
+.products {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -225,7 +238,7 @@ body {
     font-size: 30px;
 }
 
-.orders{
+.orders {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -254,7 +267,7 @@ body {
     transition: all .2s ease-in-out;
 }
 
-.order img:hover{
+.order img:hover {
     transform: scale(1.3);
 }
 
@@ -286,7 +299,7 @@ body {
     height: 400px;
 }
 
-.gallery img{
+.gallery img {
     min-width: 0;
     flex: 1 1 10px;
     object-fit: cover;
@@ -294,7 +307,7 @@ body {
     transition: 0.5s;
 }
 
-.gallery img:hover{
+.gallery img:hover {
     flex: 1 1 280px;
     opacity: 1;
     cursor: pointer;
@@ -303,100 +316,116 @@ body {
 
 
 .wrapper {
-  max-width: 1100px;
-  width: 100%;
-  position: relative;
-  display: none;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    /*display: none;*/
 }
+
 .wrapper i {
-  top: 50%;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  font-size: 1.25rem;
-  position: absolute;
-  text-align: center;
-  line-height: 50px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-  transform: translateY(-50%);
-  transition: transform 0.1s linear;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
 }
-.wrapper i:active{
-  transform: translateY(-50%) scale(0.85);
+
+.wrapper i:active {
+    transform: translateY(-50%) scale(0.85);
 }
-.wrapper i:first-child{
-  left: -22px;
+
+.wrapper i:first-child {
+    left: -22px;
 }
-.wrapper i:last-child{
-  right: -22px;
+
+.wrapper i:last-child {
+    right: -22px;
 }
-.wrapper .carousel{
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  border-radius: 8px;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
+
+.wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 25px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
+
 .carousel::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
+
 .carousel.no-transition {
-  scroll-behavior: auto;
+    scroll-behavior: auto;
 }
+
 .carousel.dragging {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
 }
+
 .carousel.dragging .card {
-  cursor: grab;
-  user-select: none;
+    cursor: grab;
+    user-select: none;
 }
+
 .carousel :where(.card, .img) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .carousel .card {
-  scroll-snap-align: start;
-  height: 342px;
-  list-style: none;
-  cursor: pointer;
-  padding-bottom: 15px;
-  flex-direction: column;
-  border-radius: 8px;
+    scroll-snap-align: start;
+    height: 342px;
+    list-style: none;
+    cursor: pointer;
+    flex-direction: column;
+    border-radius: 8px;
 }
-.carousel .card .img {
-  height: 300px;
-  width: 300px;
+
+.card .img img {
+    width: 342px;
+    height: 342px;
+    border-radius: 15px;
+    object-fit: cover;
 }
 
 .carousel .card h2 {
-  font-weight: 500;
-  font-size: 1.56rem;
-  margin: 30px 0 5px;
-}
-.carousel .card span {
-  color: #6A6D78;
-  font-size: 1.31rem;
-}
-@media screen and (max-width: 900px) {
-  .wrapper .carousel {
-    grid-auto-columns: calc((100% / 2) - 9px);
-  }
-}
-@media screen and (max-width: 600px) {
-  .wrapper .carousel {
-    grid-auto-columns: 100%;
-  }
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 30px 0 5px;
 }
 
-@media(max-width: 992px){
+.carousel .card span {
+    color: #6A6D78;
+    font-size: 1.31rem;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+}
+
+@media(max-width: 992px) {
     .nav-links {
         display: none;
     }
@@ -427,8 +456,8 @@ body {
 }
 
 @media(max-width: 576px) {
-    .dropdown-menu{
-        left:2rem;
+    .dropdown-menu {
+        left: 2rem;
         width: unset;
     }
 
