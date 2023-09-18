@@ -11,6 +11,7 @@ body {
     background-color: #8d99ae;
     min-height: 100vh;
     padding: 0 35px;
+    padding-bottom: 35px;
 }
 
 .navbar {
@@ -62,6 +63,7 @@ body {
     margin-top: 20px;
     color: white;
     text-decoration: underline;
+    text-align: center;
 }
 
 .toggle-btn {
