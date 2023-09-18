@@ -315,13 +315,11 @@ body {
     cursor: pointer;
 }
 
-
-
 .wrapper {
     max-width: 1100px;
     width: 100%;
     position: relative;
-    /*display: none;*/
+    display: none;
 }
 
 .wrapper i {
@@ -358,7 +356,7 @@ body {
     grid-auto-columns: calc((100% / 3) - 12px);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 25px;
+    gap: 40px;
     border-radius: 8px;
     scroll-behavior: smooth;
     scrollbar-width: none;
